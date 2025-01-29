@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 p-8">
+    
+    <h1 class="text-4xl">Batalha</h1>
+
+    <h2 class="text-lg text-slate-500">Distribua seus atributos, escolha suas ações e vença o duelo!</h2>
+
+    <div class="flex flex-col justify-center items-center p-8">
+        <h3 class="text-6xl" id="pontos">20</h3>
+        <h3>Pontos Disponíveis</h3>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-4">
+        <div>
+            <h3 class="text-2xl">Jogador</h3>
+            <form action="/jogador" method="post">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="w-full p-2 rounded-lg bg-slate-800 text-slate-100">
+                    </div>
+                    <div>
+                        <label for="vida">Vida</label>
+                        <input type="number" name="vida" value="10" min="1" max="30" onchange="handlePointsChange(this)" id="vida" class="w-full p-2 rounded-lg bg-slate-800 text-slate-100">
+                    </div>
+                    <div>
+                        <label for="ataque">Ataque</label>
+                        <input type="number" name="ataque" value="10" min="1" max="30" onchange="handlePointsChange(this)" id="ataque" class="w-full p-2 rounded-lg bg-slate-800 text-slate-100">
+                    </div>
+                    <div>
+                        <label for="defesa">Defesa</label>
+                        <input type="number" name="defesa" value="10" min="1" max="30" onchange="handlePointsChange(this)" id="defesa" class="w-full p-2 rounded-lg bg-slate-800 text-slate-100">
+                    </div>
+                </div>
+                <button type="submit" class="mt-4 bg-green-800 text-green-100 p-2 rounded-lg">Vamos lutar ⚔️</button>
+            </form>
+        </div>
+        
+</body>
+<script>
+    function handlePointsChange(event) {
+        const vida = document.querySelector('#vida').value;
+        const ataque = document.querySelector('#ataque').value;
+        const defesa = document.querySelector('#defesa').value;
+        const pontos = 50 - (parseInt(vida) + parseInt(ataque) + parseInt(defesa));
+        if (pontos < 0) {
+            event.value = parseInt(event.value) + pontos;
+            return;
+        }
+        document.querySelector('#pontos').innerText = pontos;
+    }
+</script>
+</html>
