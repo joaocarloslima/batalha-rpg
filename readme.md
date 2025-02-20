@@ -21,6 +21,9 @@ O objetivo do projeto é criar uma aplicação de batalha entre jogadores. O alu
     - `receberDano(int dano)`: este método é responsável por reduzir a vida do jogador com base no dano recebido. O método deve subtrair o valor do dano do atributo `vida` do jogador. Se a vida do jogador resultar em um valor negativo após a subtração, ela deve ser ajustada para zero, garantindo que a vida do jogador nunca seja negativa. O método não retorna nenhum valor.
     - Métodos getters para todos os atributos.
 
+
+![Diagrama UML](images/uml.png)
+
 ### Classe BatalhaController
 
 - Siga as instruções nos comentários para desenvolver o funcionamento do controller.
